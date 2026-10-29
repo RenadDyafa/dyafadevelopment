@@ -177,12 +177,12 @@ function HeroIntro({
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col justify-end pb-[max(2.5rem,6vh)] pt-[var(--nav-h)] [text-shadow:0_2px_24px_rgba(10,10,10,0.55)]"
+      className="absolute inset-0 flex flex-col justify-end pb-[max(2.5rem,6vh)] pt-[var(--nav-h)] squat:pb-6 [text-shadow:0_2px_24px_rgba(10,10,10,0.55)]"
       style={cinematic ? { opacity, y } : undefined}
     >
-      <div className="shell grid items-end gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-7">
-          <motion.p {...rise(0.1)} className="eyebrow mb-6 font-medium text-bone/85">
+      <div className="shell grid items-end gap-10 squat:gap-4 flat:grid-cols-12 flat:gap-6 lg:grid-cols-12">
+        <div className="flat:col-span-6 lg:col-span-7">
+          <motion.p {...rise(0.1)} className="eyebrow mb-6 font-medium text-bone/85 squat:mb-3">
             {t.hero.eyebrow}
           </motion.p>
           <h1 className="sr-only">
@@ -193,17 +193,17 @@ function HeroIntro({
               initial={{ y: reduce ? 0 : "22%" }}
               animate={{ y: "0%" }}
               transition={{ duration: reduce ? 0.3 : 1.6, delay: d, ease: easeArch }}
-              className="display text-[clamp(4.5rem,12.5vw,13.5rem)] font-medium! leading-[0.8] text-bone rtl:leading-[1.15]"
+              className="display text-[min(clamp(4.5rem,12.5vw,13.5rem),24svh)] font-medium! leading-[0.8] text-bone rtl:leading-[1.15]"
             >
               {t.hero.wordmark}
             </motion.div>
           </div>
         </div>
-        <div className="lg:col-span-5 lg:pb-4">
-          <motion.p {...rise(0.35, false)} className="display mb-5 text-[length:var(--text-headline)] font-medium! text-bone">
+        <div className="flat:col-span-6 lg:col-span-5 lg:pb-4">
+          <motion.p {...rise(0.35, false)} className="display mb-5 text-[length:var(--text-headline)] font-medium! text-bone squat:mb-3 flat:text-[1.6rem]">
             {t.hero.title}
           </motion.p>
-          <motion.p {...rise(0.5, false)} className="mb-9 max-w-md text-[length:var(--text-lede)] leading-relaxed text-bone">
+          <motion.p {...rise(0.5, false)} className="mb-9 max-w-md text-[length:var(--text-lede)] leading-relaxed text-bone squat:mb-5 squat:text-base squat:leading-normal flat:hidden">
             {t.hero.body}
           </motion.p>
           <motion.div {...rise(0.65)} className="flex flex-wrap items-center gap-3">

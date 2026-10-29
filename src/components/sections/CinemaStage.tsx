@@ -37,8 +37,8 @@ export function CinemaStage({ f }: { f: Dictionary["film"] }) {
     <motion.section id="film" ref={ref} aria-labelledby="film-title" style={{ backgroundColor: room }} className="relative h-[460vh]">
       <h2 id="film-title" className="sr-only">{f.title}</h2>
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
-        {/* Full screen on wide displays; full width (never cropped) on portrait phones */}
-        <motion.div style={{ opacity: picture }} className="relative aspect-video w-full pin:aspect-auto pin:h-full">
+        {/* Fills the screen on every device; phones see the centre of the frame */}
+        <motion.div style={{ opacity: picture }} className="relative size-full">
           <motion.div style={{ scale: push }} className="absolute inset-0">
             <FilmPlayer f={f} progress={film} />
           </motion.div>

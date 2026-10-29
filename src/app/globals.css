@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
-/* Wide screens with motion allowed: sections that pin and scroll horizontally. */
-@custom-variant pin (@media (min-width: 900px) and (prefers-reduced-motion: no-preference));
+/* Wide, landscape screens with motion allowed: sections that pin and scroll horizontally.
+   Upright tablets get the stacked layouts, which suit a tall screen better. */
+@custom-variant pin (@media (min-width: 900px) and (min-aspect-ratio: 5/4) and (prefers-reduced-motion: no-preference));
+/* Desktop-shaped screens (Expertise index + panel), and the same with motion allowed (pinned). */
+@custom-variant wide (@media (min-width: 1024px) and (min-aspect-ratio: 5/4));
+@custom-variant stage (@media (min-width: 1024px) and (min-aspect-ratio: 5/4) and (prefers-reduced-motion: no-preference));
+/* Short screens: small phones and phones held sideways. */
+@custom-variant squat (@media (max-height: 700px));
+@custom-variant flat (@media (max-height: 520px) and (orientation: landscape));
 
 /* ------------------------------------------------------------------
    Dyafa Real Estate Development & Investment — design tokens
@@ -49,6 +56,10 @@
 
   html {
     background: var(--color-charcoal);
+    /* Large displays: scale the whole layout with the screen instead of leaving it small in the middle. */
+    @media (min-width: 1680px) {
+      font-size: min(calc(100vw / 105), 30px);
+    }
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

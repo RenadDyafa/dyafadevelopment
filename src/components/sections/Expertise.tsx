@@ -20,7 +20,7 @@ import { Symbol } from "@/components/brand/Symbol";
 // Each capability shifts the room's tone — all derived from the brand palette.
 const TONES = ["#232224", "#4f4f46", "#19181a", "#3a3934"];
 // Wide screens with motion allowed: the section pins and the scroll walks through 01–04.
-const PIN_QUERY = "(min-width: 1024px) and (prefers-reduced-motion: no-preference)";
+const PIN_QUERY = "(min-width: 1024px) and (min-aspect-ratio: 5/4) and (prefers-reduced-motion: no-preference)"; // the `stage` variant
 
 type Item = Dictionary["expertise"]["items"][number];
 
@@ -79,7 +79,7 @@ export function Expertise({ t }: { t: Dictionary }) {
       id="expertise"
       ref={ref}
       aria-labelledby="expertise-title"
-      className="relative isolate z-10 overflow-x-clip text-bone motion-safe:-mt-[100svh] lg:motion-safe:h-[400vh]"
+      className="relative isolate z-10 overflow-x-clip text-bone motion-safe:-mt-[100svh] stage:h-[400vh]"
     >
       {/* The room rises over the end of the film: transparent at the top, then the tone of the active item */}
       <motion.div
@@ -89,8 +89,8 @@ export function Expertise({ t }: { t: Dictionary }) {
         initial={{ backgroundColor: TONES[0] }}
         transition={{ duration: 1, ease: easeCinema }}
       />
-      <div className="lg:motion-safe:sticky lg:motion-safe:top-0 lg:motion-safe:flex lg:motion-safe:h-[100svh] lg:motion-safe:flex-col lg:motion-safe:justify-center">
-        <div className="shell pt-[var(--spacing-section)] lg:motion-safe:pt-[calc(var(--nav-h)+1.5rem)]">
+      <div className="stage:sticky stage:top-0 stage:flex stage:h-[100svh] stage:flex-col stage:justify-center">
+        <div className="shell pt-[var(--spacing-section)] stage:pt-[calc(var(--nav-h)+1.5rem)]">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="eyebrow mb-6 text-sand">
@@ -104,14 +104,14 @@ export function Expertise({ t }: { t: Dictionary }) {
         </div>
 
         {/* Phones and tablets: the four capabilities stacked, each image unveiled as it arrives */}
-        <ol className="shell grid gap-16 py-[clamp(3rem,7vw,6rem)] pb-[var(--spacing-section)] lg:hidden">
+        <ol className="shell grid gap-16 py-[clamp(3rem,7vw,6rem)] pb-[var(--spacing-section)] wide:hidden">
           {items.map((it, i) => (
             <StackedItem key={it.id} item={it} n={i + 1} reduce={!!reduce} />
           ))}
         </ol>
 
         {/* Wide screens: index + exhibition panel */}
-        <div className="shell hidden gap-x-12 py-[clamp(3rem,7vw,6rem)] pb-[var(--spacing-section)] lg:grid lg:grid-cols-12 lg:motion-safe:py-[clamp(1.5rem,4vh,3rem)]">
+        <div className="shell hidden gap-x-12 py-[clamp(3rem,7vw,6rem)] pb-[var(--spacing-section)] wide:grid wide:grid-cols-12 stage:py-[clamp(1.5rem,4vh,3rem)]">
           <LayoutGroup>
             <div role="tablist" aria-orientation="vertical" aria-label={t.expertise.title} onKeyDown={onKey} className="flex flex-col lg:col-span-5">
               {items.map((it, i) => {
@@ -163,7 +163,7 @@ export function Expertise({ t }: { t: Dictionary }) {
             aria-labelledby={`tab-${item.id}`}
             className="relative grid gap-8 lg:col-span-7 lg:grid-cols-7"
           >
-            <div ref={frame} className="relative aspect-[4/5] overflow-hidden bg-ink lg:col-span-4 lg:motion-safe:aspect-auto lg:motion-safe:h-[min(60vh,38rem)]">
+            <div ref={frame} className="relative aspect-[4/5] overflow-hidden bg-ink lg:col-span-4 stage:aspect-auto stage:h-[min(60vh,38rem)]">
               <AnimatePresence mode="popLayout">
                 {seen && (
                   <motion.div

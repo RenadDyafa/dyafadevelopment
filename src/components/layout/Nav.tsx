@@ -120,7 +120,7 @@ export function Nav({ t, locale }: { t: Dictionary; locale: Locale }) {
                 <a
                   href={href}
                   onClick={(e) => (e.preventDefault(), go(href))}
-                  className="group relative py-2 text-[0.82rem] tracking-wide opacity-80 transition-opacity hover:opacity-100"
+                  className="group relative -mx-2 px-2 py-2 text-[0.82rem] tracking-wide opacity-80 transition-opacity hover:opacity-100"
                 >
                   {label}
                   <span className="absolute inset-x-0 bottom-0 h-px origin-[var(--line-origin)] scale-x-0 bg-current transition-transform duration-500 ease-[var(--ease-arch)] group-hover:scale-x-100" />

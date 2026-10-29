@@ -4,7 +4,7 @@ import { motion, useMotionValueEvent, useScroll, useTransform } from "motion/rea
 import { useLenis } from "lenis/react";
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
-const PIN = "(min-width: 900px) and (prefers-reduced-motion: no-preference)";
+const PIN = "(min-width: 900px) and (min-aspect-ratio: 5/4) and (prefers-reduced-motion: no-preference)"; // matches the `pin` variant
 
 /**
  * Pins the (server-rendered) portfolio and translates it horizontally with scroll.

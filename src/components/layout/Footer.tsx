@@ -13,7 +13,7 @@ export function Footer({ t }: { t: Dictionary }) {
       <div className="shell relative flex flex-col gap-12 pb-10 pt-24">
         <div className="flex flex-wrap items-end justify-between gap-10">
           <Lockup title={t.brand.full} className="h-14 w-auto text-sand md:h-16" />
-          <ScrollLink href="#home" className="eyebrow text-[0.65rem] text-bone/60 transition-colors hover:text-bone">
+          <ScrollLink href="#home" className="eyebrow -my-3 inline-flex min-h-11 items-center text-[0.65rem] text-bone/60 transition-colors hover:text-bone">
             {t.footer.top} ↑
           </ScrollLink>
         </div>

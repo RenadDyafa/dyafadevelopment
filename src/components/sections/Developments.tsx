@@ -23,7 +23,7 @@ export function Developments({ t }: { t: Dictionary }) {
             id="developments-title"
             as="h2"
             lines={d.title.split(/(?<=\s)(?=\S+\.$)/)}
-            className="display text-[clamp(2.5rem,5vw,5.5rem)] text-charcoal"
+            className="display text-[clamp(2.5rem,5vw,5rem)] text-charcoal"
           />
         </div>
         <p className="max-w-md leading-relaxed text-olive-deep">{d.intro}</p>
